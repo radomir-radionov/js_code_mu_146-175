@@ -254,9 +254,9 @@
 
 // Задача 154.8
 // Модифицируйте предыдущую задачу так, чтобы восклицательный знак записывался не в конец текста, а в начало.
+
 // let result = elem.innerHTML.split("");
-// result.unshift("!");
-// result = result.join("");
+// result = ["!", ...result].join("");
 // button.addEventListener("click", function () {
 //   elem.innerHTML = result;
 // });
@@ -303,3 +303,82 @@
 // elem.addEventListener("focus", function () {
 //   console.log((elem.value = ""));
 // });
+
+// 158 Исключения при работе с атрибутами в JavaScript
+
+// При работе с атрибутами существует исключение - это атрибут class.
+// Это слово является специальным в JavaScript и поэтому мы не можем просто написать elem.class,
+// чтобы считать значение атрибута class. Вместо этого следует писать elem.className.
+// let elem = document.querySelector("#elem");
+// alert(elem.className); // выведет 'aaa bbb'
+// Существуют и другие исключения, например, атрибут for. К нему следует обращаться через htmlFor.
+
+// Задача 158.1
+// Дан див:
+// <div id="elem" class="content no-gap"></div>
+// Дана также кнопка. По нажатию на кнопку прочитайте и выведите на экран значение атрибута class нашего дива.
+// button.addEventListener("focus", function () {
+//   alert(elem.className);
+// });
+
+// Задача 158.2
+// Дан див:
+// <div id="elem"></div>
+// Дана также кнопка. По нажатию на кнопку запишите в атрибут class нашего дива какой-нибудь класс.
+// button.addEventListener("focus", function () {
+//   alert((className = "GG"));
+// });
+
+// let elem = document.querySelector("#elem");
+// console.log(elem);
+
+// Задача 158.3
+// Дан див с несколькими CSS классами, записанными через пробел:
+// <div id="elem" class="aaa bbb ccc"></div>
+// Дана также кнопка. По нажатию на кнопку получите массив CSS классов нашего дива.
+// let result = elem.className;
+// button.addEventListener("focus", function () {
+//   console.log(result.split(" "));
+// });
+
+// 159 Цепочки методов и свойств в JavaScript
+// alert(document.querySelector("#elem").value);
+// document.querySelector('#elem').value = 'www';
+
+// Задача 159.1
+// Дан следующий код:
+// <img id="image" src="avatar.png">
+// let image = document.querySelector('#image');
+// console.log(image.src);
+// Переделайте приведенный выше код так, чтобы вместо введения переменной image использовалась цепочка.
+// let image = document.querySelector("#image").src;
+// console.log(image);
+
+// Преимущества и недостатки цепочек
+// любая работа с элементами страницы - это медленная операция
+
+// 160 Объект this в JavaScript
+//  Этот объект указывает на элемент, в котором произошло событие.
+
+//  Задача 160.1
+// Дан инпут. По получению фокуса этим инпутом запишите в него число 1, а по потери фокуса - число 2.
+//  Для обращения у инпуту внутри функции-обработчика используйте объект this.
+
+// elem.addEventListener("focus", function () {
+//   alert((this.value = 1));
+// });
+// elem.addEventListener("blur", function () {
+//   alert((this.value = 2));
+// });
+
+// Задача 160.2
+// Дана кнопка, значением которой служит число 1. Сделайте так, чтобы по клику на
+// эту кнопку ее значение каждый раз увеличивалось на единицу.
+// elem.addEventListener("click", function () {
+//   if (true) {
+//     this.value = +this.value + +1;
+//   }
+//   console.log(this.value);
+// });
+
+// Особое преимущество this (значение this имеет значения контекста в котором this  выполняется)
