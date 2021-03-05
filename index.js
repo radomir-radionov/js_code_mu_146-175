@@ -380,5 +380,86 @@
 //   }
 //   console.log(this.value);
 // });
-
 // Особое преимущество this (значение this имеет значения контекста в котором this  выполняется)
+
+// Задача 160.3
+// Даны 5 абзацев с какими-то текстами. По клику на любой абзац запишите в конец его текста восклицательный знак.
+// let elem = document.querySelector("#elem");
+// let elem1 = document.querySelector("#elem1");
+// let elem2 = document.querySelector("#elem2");
+
+// elem.addEventListener("click", func);
+// elem1.addEventListener("click", func);
+// elem2.addEventListener("click", func);
+
+// function func() {
+//   console.log(this.innerHTML + "!");
+// }
+
+// Получение группы элементов
+// querySelectorAll, получает все теги, подпадающие под CSS селектор, в виде массива элементов.
+
+// let elems = document.querySelectorAll(".www");
+// for (let elem of elems) {
+//   console.log(elem.innerHTML);
+// }
+
+// Задача 161.1
+// Даны абзацы и кнопка. По нажатию на кнопку найдите все абзацы, переберите из циклом и установите текст каждого абзаца в значение text.
+// let button = document.querySelector("#button");
+// button.addEventListener("click", func);
+// function func() {
+//   let elems = document.querySelectorAll(".www");
+//   for (let elem of elems) {
+//     elem.innerHTML = "123";
+//     console.log(elem);
+//   }
+// }
+
+// Задача 161.2
+// Даны абзацы с текстом и кнопка. По нажатию на кнопку запишите в конец текста каждого абзаца его порядковый номер.
+// let button = document.querySelector("#button");
+// button.addEventListener("click", func);
+// function func() {
+//   let elems = document.querySelectorAll(".www");
+//   for (let i = 0; i < elems.length; i++) {
+//     elems[i].innerHTML = i + 1;
+//   }
+//   console.log(elems);
+// }
+
+// Задача 161.3
+// Даны инпуты с числами, абзац и кнопка. По нажатию на кнопку найдите сумму чисел из инпутов и запишите эту сумму в текст абзаца.
+// let button = document.querySelector("#button");
+// button.addEventListener("click", f01);
+// function f01() {
+//   let inp = document.querySelectorAll("#d1 input");
+//   let sum = 0;
+//   for (var i = 0; i < inp.length; i++) {
+//     sum += Number(inp[i].value);
+//   }
+//   console.log(sum);
+// }
+
+// Добавление обработчиков событий в цикле
+
+// let elems = document.querySelectorAll("p");
+// for (let elem of elems) {
+//   elem.addEventListener("click", func);
+// }
+// function func() {
+//   alert(this.innerHTML); // выводим текст абзаца
+// }
+
+// Задача 162.1
+// Дана следующая функция:
+// Даны также инпуты. Сделайте так, чтобы по потери фокуса в любом из наших инпутов выполнялась приведенная выше функция.
+// let elems = document.querySelectorAll("#text");
+// for (let elem of elems) {
+//   elem.addEventListener("blur", function func() {
+//     this.value = Number(this.value) + 1;
+//   });
+// }
+
+// Задача 162.2
+// Даны абзацы с числами. Сделайте так, чтобы по клику на любой абзац его число в нем возводилось в квадрат.
