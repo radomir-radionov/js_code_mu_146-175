@@ -54,7 +54,6 @@
 // console.log(elem);
 
 // Задача 148.4
-
 // Дан следующий HTML:
 // <p class="www">text</p>
 // <p class="www">text</p>
@@ -64,7 +63,6 @@
 // console.log(elem);
 
 // 149 Привязывание обработчиков событий к элементам
-
 // Действия пользователя, которые мы можем отследить через JavaScript, называются событиями.
 // метод addEventListener, первым параметром принимающий название события (клик на кнопку имеет название click),
 // а вторым параметром - функцию-коллбэк, выполняющуюся при возникновении этого события.
@@ -141,7 +139,6 @@
 // 152 Привязывание одного обработчика ко многим элементам
 
 // Задача 152.1
-
 // Даны 5 абзацев:
 // <p id="elem1">text</p>
 // <p id="elem2">text</p>
@@ -463,3 +460,180 @@
 
 // Задача 162.2
 // Даны абзацы с числами. Сделайте так, чтобы по клику на любой абзац его число в нем возводилось в квадрат.
+// let items = document.querySelectorAll("#num");
+// items.forEach(function (item) {
+//   item.addEventListener("click", function func() {
+//     item.innerHTML = item.textContent ** 2;
+//   });
+// });
+
+// Задача 162.3
+// Дан следующий код:
+// let divs = document.querySelectorAll("div");
+// for (let div of divs) {
+//   div.addEventListener("click", function () {
+//     this.innerHTML++;
+//   });
+// }
+
+// Отвязывание событий через метод removeEventListener
+// removeEventListener первым параметром принимает тип события, а вторым - ссылку на функцию, которую нужно отвязать.
+// let button = document.querySelector("#button");
+// button.addEventListener("click", func);
+// function func() {
+//   alert("!!!");
+//   this.removeEventListener("click", func);
+// }
+
+// Задача 163.1
+// Дана ссылка. По нажатию на эту ссылку добавьте в конец ее текста содержимое ее атрибута href в круглых скобках.
+// Сделайте так, чтобы это добавление происходило лишь по первому нажатию.
+// let elems = document.getElementsByTagName("a");
+// for (let i = 0; i < elems.length; i++) {
+//   elems[i].addEventListener("mouseover", function () {
+//     this.innerHTML = this.innerHTML + this.href;
+//   });
+// }
+
+// Задача 163.2
+// Дана кнопка, значением которой служит число 1. Сделайте так, чтобы по клику на эту кнопку ее значение каждый
+// раз увеличивалось на единицу. После того, как значение кнопки достигнет 10 - отвяжите обработчик события, чтобы
+// кнопка больше не реагировала на нажатие.
+
+// const btn = document.getElementById("btn");
+// btn.addEventListener("click", function func() {
+//   if (btn.value < 10) {
+//     btn.value = +btn.value + +1;
+//     console.log(btn.value);
+//   } else if (this.removeEventListener("click", func));
+// });
+
+// Отвязывание обработчиков событий в цикле
+// Задача 164.1
+// Даны абзацы. По нажатию на любой из абзацев добавьте ему в конец восклицательный знак.
+//  Сделайте так, чтобы это добавление происходило лишь по первому нажатию.
+// let items = document.querySelectorAll("#text");
+// items.forEach(function (item) {
+//   item.addEventListener("click", function func() {
+//     this.innerHTML = item.textContent + "!";
+//     this.removeEventListener("click", func);
+//   });
+// });
+
+// Отвязывание анонимных функций в JavaScript
+
+// Работа с атрибутами через методы в JavaScript
+// Задача 166.1
+// Дан элемент:
+// <input id="elem" value="text">
+// Получите значение его атрибута value.
+// let elem = document.querySelector("#elem");
+// let value = elem.getAttribute("value");
+// console.log(value);
+
+// Задача 166.2
+// Дан элемент:
+// <input id="elem" class="www zzz">
+// Получите значение его атрибута class.
+// let elem = document.querySelector("#elem");
+// let value = elem.getAttribute("class");
+// console.log(value);
+
+// Задача 166.3
+// Дан элемент:
+// <input id="elem">
+// Установите его атрибут value в значение 'text'.
+// let elem = document.querySelector("#elem");
+// elem.setAttribute("value", "!!!");
+// console.log(elem);
+
+// Задача 166.4
+// Дан элемент:
+// <input id="elem">
+// Установите ему атрибут class в значение 'valid'.
+// let elem = document.querySelector("#elem");
+// elem.setAttribute("class", "valid");
+// console.log(elem);
+
+// Удаление
+
+// Задача 166.5
+// Дан элемент:
+// <input id="elem" value="text">
+// Удалите у него атрибут value.
+// let elem = document.querySelector("#elem");
+// elem.removeAttribute("value");
+// console.log(elem);
+
+// Проверка;
+
+// Задача 166.6
+// Дан элемент:
+// <input id="elem" value="text">
+// Проверьте наличие у него атрибута value.
+// let elem = document.querySelector("#elem");
+// console.log(elem.hasAttribute("value"));
+
+// Разница между способами получения атрибутов
+
+// Работа с атрибутами через свойства и через метод getAttribute - это не одно и то же:
+// при изменении свойства значение атрибута, полученное через метод, не меняется!
+
+// Задача 167.1
+// Дан инпут с каким-то начальным значением. Дана также кнопка. По нажатию на кнопку
+// определите, было ли изменено пользователем начальное значение инпута.
+// let elem = document.querySelector("#elem");
+// let btn = document.querySelector("#btn");
+// btn.addEventListener("click", function () {
+//   let value = elem.getAttribute("value");
+//   console.log(value);
+// });
+
+// Изменение атрибута
+
+// А вот изменение атрибута обновляет свойство:
+// elem.setAttribute('value', 'new'); // поменяли атрибут
+// let value = elem.value;
+// console.log(value); // выведет 'new'
+
+// Задача 167.2
+// Дан инпут с каким-то начальным значением. Пусть пользователь меняет это значение. Сделайте рядом с инпутом кнопку,
+//  по нажатию на которую value инпута вернется в изначальное значение.
+// let elem = document.querySelector("#elem");
+// let btn = document.querySelector("#btn");
+// elem.value = "new";
+// console.log(elem.value);
+// btn.addEventListener("click", function () {
+//   let value = elem.getAttribute("value");
+//   console.log(value);
+// });
+
+// Стилизация элементов через атрибут style в JavaScript(elem.style.color)
+
+// Задача 169.1
+// Дан див и кнопка. По клику на кнопку добавьте диву ширину, высоту и границу.
+
+// let elem = document.querySelector("#div");
+// let btn = document.querySelector("#btn");
+// btn.addEventListener("click", function () {
+//   elem.style.width = "100px";
+//   elem.style.height = "100px";
+//   elem.style.border = "10px";
+//   elem.style.backgroundColor = "#ffb3b3";
+// });
+
+// Свойства с дефисом
+// Свойства, которые записываются через дефис, например font-size, преобразуются в camelCase. То есть font-size станет fontSize:
+
+// Задача 169.2
+// Дан див с текстом и кнопка. По клику на кнопку установите диву размер шрифта в 20px, а также верхнюю границу и фон.
+// let elem = document.querySelector("#div");
+// let btn = document.querySelector("#btn");
+// let text = document.querySelector("#text");
+// btn.addEventListener("click", function () {
+//   elem.style.fontSize = "40px";
+// });
+
+// Исключение
+// Свойство float является исключением, так как оно является специальным в JavaScript. Для него следует писать cssFloat:
+// elem.style.cssFloat = 'right';
