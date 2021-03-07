@@ -625,6 +625,50 @@
 // Свойства с дефисом
 // Свойства, которые записываются через дефис, например font-size, преобразуются в camelCase. То есть font-size станет fontSize:
 
+// Манипулирование CSS классами в JavaScript
+// Массив классов (classList)
+
+// Задача 168.1
+// <p id="elem" class="www ggg zzz"></p>
+// Узнайте количество его классов.
+// let elem = document.querySelector("#elem");
+// let length = elem.classList.length;
+// console.log(length);
+
+// Задача 168.2
+// Переберите в цикле его классы.
+// let elem = document.querySelector("#elem");
+// let classNames = elem.classList;
+// for (let className of classNames) {
+//   document.write(className + "<br>");
+// }
+
+// Добавление классов
+// classList.add
+
+// Задача 168.3
+// Добавьте ему класс xxx.
+// let elem = document.querySelector("#elem");
+// elem.classList.add("xxx");
+// console.log(elem);
+
+// Удаление классов
+// classList.remove
+// let elem = document.querySelector('#elem');
+// elem.classList.remove('ggg');
+
+// Проверка классов
+// classList.contains
+// let elem = document.querySelector("#elem");
+// let contains = elem.classList.contains("ggg");
+// console.log(contains);
+
+// Чередование классов
+// classList.toggle
+// Метод toggle объекта classList чередует заданный CSS класс элемента: добавляет класс, если его нет и удаляет, если есть.
+// let elem = document.querySelector('#elem');
+// elem.classList.toggle('zzz');
+
 // Задача 169.2
 // Дан див с текстом и кнопка. По клику на кнопку установите диву размер шрифта в 20px, а также верхнюю границу и фон.
 // let elem = document.querySelector("#div");
@@ -637,3 +681,240 @@
 // Исключение
 // Свойство float является исключением, так как оно является специальным в JavaScript. Для него следует писать cssFloat:
 // elem.style.cssFloat = 'right';
+
+// Стилизация с помощью CSS классов на JavaScript
+
+// Задача 170.1
+// Объясните, почему я выбрал для названия класса слово colored, а не слово green, явно указывающее на желаемый нами цвет.
+// Потому, что цвет могут поменять
+
+// Задача 170.2
+// Дан абзац. Даны кнопки 'перечеркнуть', 'сделать жирным', 'сделать красным'. Пусть по нажатию на каждую кнопку
+// заданное действие происходит с абзацем (становится красным, например).
+// let text = document.querySelector("#text");
+// let btn1 = document.querySelector("#btn1");
+// let btn2 = document.querySelector("#btn2");
+// let btn3 = document.querySelector("#btn3");
+// btn1.addEventListener("click", function () {
+//   text.classList.add("textDecoration");
+// });
+// btn2.addEventListener("click", function () {
+//   text.classList.add("fontWeigth");
+// });
+// btn3.addEventListener("click", function () {
+//   text.classList.add("colored");
+// });
+
+// Задача 170.3
+// Модифицируйте предыдущую задачу так, чтобы повторное нажатие на кнопку отменяло действие этой кнопки.
+// let text = document.querySelector("#text");
+// let btn1 = document.querySelector("#btn1");
+// let btn2 = document.querySelector("#btn2");
+// let btn3 = document.querySelector("#btn3");
+// btn1.addEventListener("click", function () {
+//   text.classList.toggle("textDecoration");
+// });
+// btn2.addEventListener("click", function () {
+//   text.classList.toggle("fontWeigth");
+// });
+// btn3.addEventListener("click", function () {
+//   text.classList.toggle("colored");
+
+// Нахождение элементов по родственным связям
+// firstElementChild lastElementChild children
+
+// Потомки элементов
+// Задача 171.1 Задача 171.2 Задача 171.3
+// Дан элемент #elem:
+// Найдите первого потомка этого элемента и сделайте его текст красного цвета.
+// let parent = document.querySelector("#elem");
+// let text = parent.firstElementChild;
+// text.style.color = "red";
+
+// Родители элементов (parentElement)
+
+// Поиск всех родителей(closest)
+
+// Задача 171.6
+// Найдите ближайшего родителя этого элемента, являющегося тегом div.
+// let elem = document.querySelector("#child");
+// let parent = elem.closest(".www");
+// console.log(parent.id);
+
+// Поиск соседей (previousElementSibling nextElementSibling)
+
+// Другие полезные методы для поиска элементов
+// getElementById getElementsByTagName getElementsByClassName
+
+// Поиск элементов внутри другого элемента
+
+// Задача 173.1
+// Дан элемент #parent:
+// Найдите внутри родителя элементы с классом www и запишите их в переменную elems1.
+// Затем найдите внутри родителя элементы с классом ggg и запишите их в переменную elems2.
+// let parent = document.querySelector("#parent");
+// let elems1 = document.querySelectorAll("#parent .www");
+// console.log(elems1);
+// let elems2 = document.querySelectorAll("#parent .ggg");
+// console.log(elems2);
+
+// Пользовательские атрибуты в JavaScript
+// В HTML разрешено добавлять свои, пользовательские атрибуты тегам. Такие атрибуты должны
+//  начинаться с data-, а затем должно идти любое название атрибута, которое вам удобно.
+// Обращение к таким атрибутам устроено не стандартным образом. Нельзя просто обратиться к
+// одноименному свойству элемента, как мы делали это раньше, а следует использовать специальное
+// свойство dataset, после которого через точку пишется имя атрибута без data-. Например,
+// если наш атрибут называется data-test, то для обращения к нему мы будем писать
+// elem.dataset.test, где elem - переменная с нашим элементом.
+// Давайте посмотрим на примере. Пусть у нас дан вот такой элемент:
+// <div id="elem" data-num="1000"></div>
+// Выведем на экран значение его атрибута data-num:
+// let elem = document.querySelector('#elem');
+// alert(elem.dataset.num); // выведет 1000
+// А теперь присвоим этому атрибуту другое значение:
+// let elem = document.querySelector('#elem');
+// elem.dataset.num = 123;
+
+// Задача 174.1
+// <div id="elem" data-text="str">text</div>
+// Сделайте так, чтобы по клику на див в конец его текста добавилось содержимое его атрибута data-text.
+// let div = document.querySelector("#elem");
+// div.addEventListener("click", function () {
+//   this.innerHTML = this.textContent + elem.dataset.text;
+// });
+
+// Задача 174.2
+// Даны дивы, содержащие в атрибуте data-num свой порядковый номер:
+// Сделайте так, чтобы по клику на любой из дивов ему в конец записывался его порядковый номер.
+
+// let items = document.querySelectorAll("#text");
+// items.forEach(function (item) {
+//   item.addEventListener("click", function func() {
+//     this.innerHTML = this.textContent + this.dataset.num;
+//   });
+// });
+
+// Задача 174.3
+// Дана кнопка. Сделайте так, чтобы эта кнопка считала количество кликов по ней,
+// записывая их в какой-нибудь пользовательский атрибут. Пусть по двойному клику на эту кнопку
+// на экран выводится, сколько кликов по этой кнопке было сделано.
+// let btn = document.querySelector("#btn");
+// let count = 0;
+// btn.addEventListener("click", function () {
+//   ++count;
+//   console.log(count);
+// });
+// btn.addEventListener("dblclick", function () {
+//   alert(count);
+// });
+
+// Задача 174.4
+// <input id="elem" data-length="5">
+// В этом инпуте в атрибуте data-length содержится количество символов, которое нужно ввести в инпут.
+// Сделайте так, чтобы по потери фокуса, если количество введенных символов не совпадает с заданным,
+//  выводилось сообщение об этом.
+// let elem = document.getElementById("elem");
+// elem.addEventListener("mouseout", function () {
+//   if (elem.dataset.length > elem.value.length) {
+//     alert("Введите символы");
+//   }
+// });
+
+// Задача 174.5
+// <input id="elem" data-min="5" data-max="10">
+// В этом инпуте атрибуты data-min и data-max содержат диапазон. Сделайте так, чтобы по потери фокуса,
+// если количество введенных символов не попадает в этот диапазон, выводилось сообщение об этом.
+// let elem = document.getElementById("elem");
+// elem.addEventListener("mouseout", function () {
+//   if (
+//     elem.value.length < elem.dataset.min ||
+//     elem.value.length > elem.dataset.max
+//   ) {
+//     alert("Введите корректное значение");
+//   }
+// });
+
+// Имена с дефисами
+// Пользовательские атрибуты могут содержать дефисы в своем названии, например, вот так:
+// <div id="elem" data-my-test="1000"></div>
+// Для обращения к таким атрибутам следует использовать camelCase:
+// let elem = document.querySelector('#elem');
+// alert(elem.dataset.myTest);
+
+// Обращение через методы
+// К пользовательским атрибутам можно также обращаться с помощью методов типа getAttribute,
+// в этом случае следует писать полное название атрибута:
+// <div id="elem" data-num="1000" data-my-num="2000"></div>
+// let elem = document.querySelector('#elem');
+// alert(elem.getAttribute('data-num'));    // выведет 1000
+// alert(elem.getAttribute('data-my-num')); // выведет 2000
+
+// Отработка изученного материала на работу с DOM
+
+// Задача 175.1
+// Дан инпут и абзац. По потери фокуса в инпуте запишите значение инпута в конец текста абзаца.
+// let input = document.getElementById("input");
+// let elem = document.getElementById("elem");
+// console.log(elem.textContent);
+// input.addEventListener("mouseout", function () {
+//   elem.innerHTML = elem.textContent + input.value;
+//   console.log(input.value);
+// });
+
+// Задача 175.2
+// Дано несколько инпутов, абзац и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в абзац.
+// let elem = document.getElementById("elem");
+// let elem1 = document.getElementById("elem1");
+// let btn = document.getElementById("btn");
+// let text = document.getElementById("text");
+// btn.addEventListener("click", function () {
+//   text.innerHTML = +elem.value + +elem1.value;
+// });
+
+// Задача 175.3
+// Дан инпут. В него вводится число. По потери фокуса найдите сумму цифр этого числа.
+// let elem = document.getElementById("num");
+// elem.addEventListener("blur", func);
+// function func() {
+//   let sum = 0;
+//   let str = elem.value;
+//   let arr = str.split("");
+//   for (let i = 0; i < arr.length; i++) {
+//     sum += +arr[i];
+//   }
+//   let newElem = document.getElementById("result");
+//   newElem.innerHTML = sum;
+// }
+
+// Задача 175.4
+// Дан инпут. В него вводятся числа через запятую. По потери фокуса
+// найдите среднее арифметическое этих чисел (сумма делить на количество).
+// let elem = document.getElementById("num");
+// elem.addEventListener("blur", func);
+// function func() {
+//   let sum = 0;
+//   let str = elem.value;
+//   let arr = str.split(",");
+//   for (let i = 0; i < arr.length; i++) {
+//     sum += +arr[i];
+//   }
+//   let sumDivide = sum / arr.length;
+//   let newElem = document.getElementById("result");
+//   newElem.innerHTML = sumDivide;
+// }
+
+// Задача 175.5
+// Даны 4 инпута. В первый инпут вводится ФИО через пробел. По потери
+// фокуса запишите фамилию, имя и отчество в остальные 3 инпута.
+// let elem = document.getElementById("input");
+// elem.addEventListener("blur", func2);
+// function func2() {
+//   let elems = document.getElementsByClassName("name");
+//   if (elem.value !== 0) {
+//     let str = elem.value;
+//     let arr = str.split(" ");
+//     for (let i = 0; i < arr.length; i++) {
+//       elems[i].value = arr[i];
+//     }
+//   }
+// }
