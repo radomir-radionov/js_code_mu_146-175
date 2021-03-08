@@ -9,3 +9,7 @@
 .textDecoration {
   text-decoration: line-through;
 }
+
+.textTransform {
+  text-transform: lowercase;
+}

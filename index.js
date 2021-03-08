@@ -918,3 +918,153 @@
 //     }
 //   }
 // }
+
+// Задача 175.6
+// Дан инпут. В него вводится ФИО через пробел. ФИО вводится с маленькой буквы.
+// Сделайте так, чтобы по потери фокуса инпутом, введенные фамилия, имя и отчество
+// автоматически стали записанными с большой буквы (в этом же инпуте).
+// let elem = document.getElementById("input");
+// elem.addEventListener("focus", funcFocus);
+// function funcFocus() {
+//   let str = elem.value;
+//   let arr = str.split(" ");
+//   for (let i = 0; i < arr.length; i++) {
+//     elem.style.textTransform = "lowercase";
+//   }
+// }
+// elem.addEventListener("blur", funcBlur);
+// function funcBlur() {
+//   let str = elem.value;
+//   let arr = str.split(" ");
+//   for (let i = 0; i < arr.length; i++) {
+//     elem.style.textTransform = "uppercase";
+//   }
+// }
+
+// Задача 175.7
+// Дан инпут. В него вводится текст. По потери фокуса узнайте количество слов в этом тексте.
+// let elem = document.getElementById("input");
+// elem.addEventListener("blur", funcFocus);
+// function funcFocus() {
+//   let str = elem.value;
+//   let arr = str.split(" ");
+//   console.log(arr.length);
+// }
+
+// Задача 175.8
+// Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса
+// в этом же инпуте поставьте эту дату в формате 2016-12-31.
+// let elem = document.getElementById("num");
+// elem.addEventListener("blur", func);
+// function func() {
+//   let arr2 = [];
+//   let str = elem.value;
+//   let arr = str.split(".");
+//   arr2 = arr.reverse();
+//   let str1 = arr2.join("-");
+//   elem.value = str1;
+// }
+
+// Задача 175.9
+// Дан инпут. В него вводится слово. По нажатию на кнопку проверьте то,
+// что это слово читается с начала и с конца одинаково (например, мадам).
+// let elem = document.getElementById("num");
+// let btn = document.getElementById("but");
+// btn.addEventListener("click", func);
+// function func() {
+//   let str = elem.value;
+//   let arr = str.split("");
+//   let arr2 = str.split("").reverse();
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] !== arr2[i]) {
+//       alert("это слово не палиндром");
+//       return;
+//     }
+//   }
+//   alert("это слово палиндром");
+//   return;
+// }
+
+// Задача 175.10
+// Дан инпут. В него вводится число. Проверьте по потери фокуса, что это число содержит внутри себя цифру 3.
+// let elem = document.getElementById("num");
+// elem.addEventListener("click", func);
+// function func() {
+//   let str = elem.value;
+//   let arr = str.split("");
+//   arr = arr.map(Number);
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] === 3) {
+//       alert("это число содержит 3");
+//       return;
+//     }
+//   }
+//   alert("это число не содержит 3");
+//   return;
+// }
+
+// Задача 175.11
+// Даны несколько абзацев и кнопка. По нажатию на кнопку запишите в конец каждого абзаца его порядковый номер.
+// let elem = document.getElementsByTagName("p");
+// let btn = document.getElementById("btn");
+// btn.addEventListener("click", func);
+// function func() {
+//   for (let i = 0; i < elem.length; i++) {
+//     elem[i].innerHTML = elem[i].innerHTML + " " + (i + 1);
+//   }
+// }
+
+// Задача 175.12
+// Даны ссылки. Добавьте в конец каждой ссылки ее href в круглых скобках.
+// let elems = document.getElementsByTagName("a");
+// for (let i = 0; i < elems.length; i++) {
+//   elems[i].addEventListener("mouseover", function () {
+//     this.innerHTML = this.innerHTML + " " + "(" + this.href + ")";
+//   });
+// }
+
+// Задача 175.14
+// Даны несколько абзацев с числами. По нажатию на любой абзац
+// запишите в него квадрат числа, которое в нем находится.
+// let num = document.getElementsByTagName("p");
+// console.log(num);
+// for (let i = 0; i < num.length; i++) {
+//   num[i].addEventListener("click", func);
+// }
+// function func() {
+//   this.innerHTML = this.innerHTML ** 2;
+// }
+
+// Задача 175.15
+// Дан инпут. В него вводится дата в формате 31.12.2016. По потери
+//  фокуса узнайте день недели (словом), который приходится на эту дату.
+// let elem = document.getElementById("num");
+// elem.addEventListener("click", func);
+// function func() {
+//   let dayWeak = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
+//   let arr = elem.value.split(".");
+//   let arr2 = arr.reverse();
+//   let str1 = arr2.join(",");
+//   let date = new Date(str1);
+//   let day = date.getDay();
+//   let p = document.getElementById("text");
+//   p.innerHTML = dayWeak[day];
+// }
+
+// Задача 175.16
+// Дан инпут. Реализуйте кнопочки +1, -1, которые будут увеличивать или
+// уменьшать на 1 значение инпута. Сделайте так, чтобы это значение не могло стать меньше нуля.
+var elem = document.getElementById("num");
+var btnElem = document.getElementsByClassName("cls");
+for (var i = 0; i < elem.length; i++) {
+  btnElem[i].addEventListener("click", func);
+}
+
+function func() {
+  var number = +elem.value + +this.value;
+  if (number >= 0) {
+    elem.value = number;
+  } else {
+    elem.value = 0;
+  }
+}
