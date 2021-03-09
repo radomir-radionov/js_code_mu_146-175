@@ -1054,17 +1054,65 @@
 // Задача 175.16
 // Дан инпут. Реализуйте кнопочки +1, -1, которые будут увеличивать или
 // уменьшать на 1 значение инпута. Сделайте так, чтобы это значение не могло стать меньше нуля.
-var elem = document.getElementById("num");
-var btnElem = document.getElementsByClassName("cls");
-for (var i = 0; i < elem.length; i++) {
-  btnElem[i].addEventListener("click", func);
-}
+// let elem = document.getElementById("num");
+// let numPlus = document.getElementById("numPlus");
+// let numMinus = document.getElementById("numMinus");
+// numPlus.addEventListener("click", funcPlus);
+// function funcPlus() {
+//   console.log((elem.value = +elem.value + +numPlus.value));
+// }
+// numMinus.addEventListener("click", funcMinus);
+// function funcMinus() {
+//   if (elem.value > 0) {
+//     elem.value = +elem.value + +numMinus.value;
+//   } else {
+//     alert("введите число  >0");
+//   }
+// }
 
-function func() {
-  var number = +elem.value + +this.value;
-  if (number >= 0) {
-    elem.value = number;
-  } else {
-    elem.value = 0;
-  }
-}
+// Задача 175.17
+// Дан инпут. Даны абзацы. Пусть в этот инпут записывается суммарное количество нажатий по этим абзацам.
+// let inp = document.getElementById("inp");
+// let p1 = document.getElementById("p1");
+// let p2 = document.getElementById("p2");
+// p1.addEventListener("click", func);
+// function func() {
+//   console.log((inp.value = +inp.value + +1));
+// }
+// p2.addEventListener("click", func);
+// function func() {
+//   console.log((inp.value = +inp.value + +1));
+// }
+
+// Задача 175.18
+// В инпут вводится страна и нажимается Enter. По нажатию на Enter сделайте так,
+// чтобы введенные страны записывались в абзац под инпутом через запятую. То есть
+// по каждому нажатию Enter в абзац будут добавляться все новые и новые страны.
+// let inp = document.querySelector("input");
+// let btn = document.querySelector("button");
+// let list = document.querySelector("ul");
+// btn.addEventListener("click", func);
+// function func() {
+//   let str = inp.value;
+//   let arr = str.split(",");
+//   let item;
+//   for (let i = 0; i < arr.length; i++) {
+//     item = document.createElement("li");
+//     item.innerHTML = arr[i];
+//     list.appendChild(item);
+//   }
+// }
+
+// Задача 175.20
+// Дан инпут. В него вводится число. По потери фокуса проверьте, что в нем лежит
+// число от 1 до 100. Если это так - покрасьте инпут в зеленый цвет, а если не так - в красный.
+// let inp = document.querySelector("input");
+// inp.addEventListener("blur", func);
+// function func() {
+//   let content = inp.value;
+//   if (content > 0 && content < 101) {
+//     inp.style.background = "green";
+//   } else {
+//     inp.style.background = "red";
+//   }
+// }
