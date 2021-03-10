@@ -1116,3 +1116,49 @@
 //     inp.style.background = "red";
 //   }
 // }
+
+// Задача 175.21
+// Дан инпут и кнопка. По нажатию на кнопку сгенерируйте случайную строку из 8-ми символов и запишите в инпут.
+// let inp = document.querySelector("input");
+// let btn = document.querySelector("button");
+// btn.addEventListener("click", func);
+// function func() {
+//   let str = "";
+//   let symbols = "0123456789qwertyuiopasdfghjklzxcvbnm";
+//   for (let i = 0; i < 8; i++) {
+//     str += symbols.charAt(Math.floor(Math.random() * symbols.length));
+//     inp.value = str;
+//   }
+// }
+
+// Задача 175.22
+// Дан инпут и кнопка. Пользователь вводит в инпут какую-то строку. По нажатию на кнопку
+// перемешайте введенные символы случайным образом и запишите ее обратно в инпут.
+// let text = document.getElementById("text");
+// String.prototype.shuffle = function () {
+//   var a = this.split(""),
+//     n = a.length;
+
+//   for (var i = n - 1; i > 0; i--) {
+//     var j = Math.floor(Math.random() * (i + 1));
+//     var tmp = a[i];
+//     a[i] = a[j];
+//     a[j] = tmp;
+//   }
+//   return a.join("");
+// };
+// console.log("the quick brown fox jumps over the lazy dog".shuffle());
+
+// Задача 175.23
+// Дана ссылка. Дан чекбокс. По нажатию на ссылку меняйте состояние чекбокса с отмеченного на неотмеченное и наоборот.
+
+// function func() {
+//   let elem = document.getElementById("text");
+//   if (elem.checked) {
+//     elem.checked = false;
+//   } else {
+//     elem.checked = true;
+//   }
+// }
+
+// Finish;
